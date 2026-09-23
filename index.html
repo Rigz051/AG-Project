@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyFinder - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Property<span>Finder</span></div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="small-title">FIND YOUR DREAM HOME</p>
+            <h1>Find a Place You'll<br>Love to Call Home</h1>
+            <p>
+                Explore properties, compare options and discover
+                the perfect place for you.
+            </p>
+
+            <div class="search-box">
+                <input type="text" placeholder="Enter location">
+                <select>
+                    <option>Property Type</option>
+                    <option>Apartment</option>
+                    <option>House</option>
+                    <option>Villa</option>
+                </select>
+                <button onclick="window.location.href='properties.html'">
+                    Search
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="section-heading">
+            <div>
+                <p class="small-title">EXPLORE</p>
+                <h2>Featured Properties</h2>
+            </div>
+            <a href="properties.html" class="view-all">View All →</a>
+        </div>
+
+        <div class="property-grid">
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern House">
+                <div class="card-content">
+                    <p class="property-type">HOUSE</p>
+                    <h3>Modern Family House</h3>
+                    <p class="location">📍 New Delhi</p>
+                    <div class="property-info">
+                        <span>🛏 3 Beds</span>
+                        <span>🚿 2 Baths</span>
+                    </div>
+                    <h4>₹75 Lakh</h4>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Luxury Apartment">
+                <div class="card-content">
+                    <p class="property-type">APARTMENT</p>
+                    <h3>Luxury City Apartment</h3>
+                    <p class="location">📍 Noida</p>
+                    <div class="property-info">
+                        <span>🛏 2 Beds</span>
+                        <span>🚿 2 Baths</span>
+                    </div>
+                    <h4>₹58 Lakh</h4>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Beautiful Villa">
+                <div class="card-content">
+                    <p class="property-type">VILLA</p>
+                    <h3>Beautiful Garden Villa</h3>
+                    <p class="location">📍 Agra</p>
+                    <div class="property-info">
+                        <span>🛏 4 Beds</span>
+                        <span>🚿 3 Baths</span>
+                    </div>
+                    <h4>₹92 Lakh</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>PropertyFinder</h3>
+                <p>Making property discovery simple and convenient.</p>
+            </div>
+
+            <div>
+                <p>© 2026 PropertyFinder</p>
+                <p>Mini Project - Full Stack Development</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
