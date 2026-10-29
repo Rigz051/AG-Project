@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Searches & Alerts</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="Saved Searches & Alerts.html" class="logo">ShopEase</a>
+    <nav>
+      <a href="Saved Searches & Alerts.html" class="active">Saved Searches</a>
+      <a href="Wishlist.html">Wishlist ♡</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL SPACE</p>
+        <h1>Saved Searches & Alerts</h1>
+        <p>Track your searches and never miss a great deal.</p>
+      </div>
+      <span class="header-icon">🔔</span>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <p>Total Searches</p>
+        <h2 id="totalSearches">3</h2>
+      </div>
+      <div class="stat-card">
+        <p>Active Alerts</p>
+        <h2 id="activeAlerts">2</h2>
+      </div>
+      <div class="stat-card">
+        <p>Alert Status</p>
+        <h2 class="green">● Live</h2>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>Your Saved Searches</h2>
+          <p>Manage your searches and notifications.</p>
+        </div>
+        <span class="pill" id="savedCount">3 Saved</span>
+      </div>
+
+      <form id="searchForm" class="search-form">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Enter a search, e.g. Laptops"
+          required
+        >
+        <button type="submit" class="primary-btn">
+          + Save Search
+        </button>
+      </form>
+
+      <div id="searchList"></div>
+    </section>
+
+    <div class="tip">
+      💡 <div>
+        <strong>Shopping Tip</strong>
+        <p>Enable alerts to keep track of your favorite searches.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
