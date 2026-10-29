@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PropertyFinder - Properties</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS-only filters (no JavaScript) */
+        .listing-page:has(#typeFilter option[value="House"]:checked) .property-card:not([data-type="House"]),
+        .listing-page:has(#typeFilter option[value="Apartment"]:checked) .property-card:not([data-type="Apartment"]),
+        .listing-page:has(#typeFilter option[value="Villa"]:checked) .property-card:not([data-type="Villa"]),
+        .listing-page:has(#bedFilter option[value="2"]:checked) .property-card:not([data-bed="2"]),
+        .listing-page:has(#bedFilter option[value="3"]:checked) .property-card:not([data-bed="3"]),
+        .listing-page:has(#bedFilter option[value="4"]:checked) .property-card:not([data-bed="4"]),
+        .listing-page:has(#locFilter option[value="Delhi"]:checked) .property-card:not([data-location="Delhi"]),
+        .listing-page:has(#locFilter option[value="Noida"]:checked) .property-card:not([data-location="Noida"]),
+        .listing-page:has(#locFilter option[value="Agra"]:checked) .property-card:not([data-location="Agra"]),
+        .listing-page:has(#locFilter option[value="Gurgaon"]:checked) .property-card:not([data-location="Gurgaon"]),
+        .listing-page:has(#locFilter option[value="Mathura"]:checked) .property-card:not([data-location="Mathura"]),
+        .listing-page:has(#locFilter option[value="Jaipur"]:checked) .property-card:not([data-location="Jaipur"]) {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,133 +46,142 @@
         <p>Browse through our available properties and find the right one for you.</p>
     </section>
 
-    <section class="filters">
+    <main class="listing-page">
 
-        <div class="filter-item">
-            <label>Location</label>
-            <input type="text" id="locationFilter" placeholder="Enter location">
-        </div>
+        <section class="filters">
 
-        <div class="filter-item">
-            <label>Property Type</label>
-            <select id="typeFilter">
-                <option value="all">All Types</option>
-                <option value="House">House</option>
-                <option value="Apartment">Apartment</option>
-                <option value="Villa">Villa</option>
-            </select>
-        </div>
-
-        <div class="filter-item">
-            <label>Bedrooms</label>
-            <select id="bedFilter">
-                <option value="all">Any</option>
-                <option value="2">2 Beds</option>
-                <option value="3">3 Beds</option>
-                <option value="4">4 Beds</option>
-            </select>
-        </div>
-
-        <button onclick="filterProperties()">Apply Filters</button>
-
-    </section>
-
-    <section class="listing-section">
-
-        <div class="listing-top">
-            <h2>Available Properties</h2>
-            <span id="propertyCount">6 Properties</span>
-        </div>
-
-        <div class="property-grid" id="propertyGrid">
-
-            <div class="property-card" data-type="House" data-bed="3" data-location="Delhi">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="House">
-                <div class="card-content">
-                    <p class="property-type">HOUSE</p>
-                    <h3>Modern Family House</h3>
-                    <p class="location">📍 New Delhi</p>
-                    <div class="property-info">
-                        <span>🛏 3 Beds</span>
-                        <span>🚿 2 Baths</span>
-                    </div>
-                    <h4>₹75 Lakh</h4>
-                </div>
+            <div class="filter-item">
+                <label for="locFilter">Location</label>
+                <select id="locFilter">
+                    <option value="all">All Locations</option>
+                    <option value="Delhi">New Delhi</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Mathura">Mathura</option>
+                    <option value="Jaipur">Jaipur</option>
+                </select>
             </div>
 
-            <div class="property-card" data-type="Apartment" data-bed="2" data-location="Noida">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Apartment">
-                <div class="card-content">
-                    <p class="property-type">APARTMENT</p>
-                    <h3>Luxury City Apartment</h3>
-                    <p class="location">📍 Noida</p>
-                    <div class="property-info">
-                        <span>🛏 2 Beds</span>
-                        <span>🚿 2 Baths</span>
-                    </div>
-                    <h4>₹58 Lakh</h4>
-                </div>
+            <div class="filter-item">
+                <label for="typeFilter">Property Type</label>
+                <select id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa">Villa</option>
+                </select>
             </div>
 
-            <div class="property-card" data-type="Villa" data-bed="4" data-location="Agra">
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Villa">
-                <div class="card-content">
-                    <p class="property-type">VILLA</p>
-                    <h3>Beautiful Garden Villa</h3>
-                    <p class="location">📍 Agra</p>
-                    <div class="property-info">
-                        <span>🛏 4 Beds</span>
-                        <span>🚿 3 Baths</span>
-                    </div>
-                    <h4>₹92 Lakh</h4>
-                </div>
+            <div class="filter-item">
+                <label for="bedFilter">Bedrooms</label>
+                <select id="bedFilter">
+                    <option value="all">Any</option>
+                    <option value="2">2 Beds</option>
+                    <option value="3">3 Beds</option>
+                    <option value="4">4 Beds</option>
+                </select>
             </div>
 
-            <div class="property-card" data-type="Apartment" data-bed="3" data-location="Gurgaon">
-                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80" alt="Apartment">
-                <div class="card-content">
-                    <p class="property-type">APARTMENT</p>
-                    <h3>Premium City Apartment</h3>
-                    <p class="location">📍 Gurgaon</p>
-                    <div class="property-info">
-                        <span>🛏 3 Beds</span>
-                        <span>🚿 2 Baths</span>
-                    </div>
-                    <h4>₹68 Lakh</h4>
-                </div>
+        </section>
+
+        <section class="listing-section">
+
+            <div class="listing-top">
+                <h2>Available Properties</h2>
             </div>
 
-            <div class="property-card" data-type="House" data-bed="2" data-location="Mathura">
-                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="House">
-                <div class="card-content">
-                    <p class="property-type">HOUSE</p>
-                    <h3>Comfortable Family Home</h3>
-                    <p class="location">📍 Mathura</p>
-                    <div class="property-info">
-                        <span>🛏 2 Beds</span>
-                        <span>🚿 2 Baths</span>
+            <div class="property-grid" id="propertyGrid">
+
+                <div class="property-card" data-type="House" data-bed="3" data-location="Delhi">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="House">
+                    <div class="card-content">
+                        <p class="property-type">HOUSE</p>
+                        <h3>Modern Family House</h3>
+                        <p class="location">📍 New Delhi</p>
+                        <div class="property-info">
+                            <span>🛏 3 Beds</span>
+                            <span>🚿 2 Baths</span>
+                        </div>
+                        <h4>₹75 Lakh</h4>
                     </div>
-                    <h4>₹48 Lakh</h4>
                 </div>
+
+                <div class="property-card" data-type="Apartment" data-bed="2" data-location="Noida">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Apartment">
+                    <div class="card-content">
+                        <p class="property-type">APARTMENT</p>
+                        <h3>Luxury City Apartment</h3>
+                        <p class="location">📍 Noida</p>
+                        <div class="property-info">
+                            <span>🛏 2 Beds</span>
+                            <span>🚿 2 Baths</span>
+                        </div>
+                        <h4>₹58 Lakh</h4>
+                    </div>
+                </div>
+
+                <div class="property-card" data-type="Villa" data-bed="4" data-location="Agra">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Villa">
+                    <div class="card-content">
+                        <p class="property-type">VILLA</p>
+                        <h3>Beautiful Garden Villa</h3>
+                        <p class="location">📍 Agra</p>
+                        <div class="property-info">
+                            <span>🛏 4 Beds</span>
+                            <span>🚿 3 Baths</span>
+                        </div>
+                        <h4>₹92 Lakh</h4>
+                    </div>
+                </div>
+
+                <div class="property-card" data-type="Apartment" data-bed="3" data-location="Gurgaon">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80" alt="Apartment">
+                    <div class="card-content">
+                        <p class="property-type">APARTMENT</p>
+                        <h3>Premium City Apartment</h3>
+                        <p class="location">📍 Gurgaon</p>
+                        <div class="property-info">
+                            <span>🛏 3 Beds</span>
+                            <span>🚿 2 Baths</span>
+                        </div>
+                        <h4>₹68 Lakh</h4>
+                    </div>
+                </div>
+
+                <div class="property-card" data-type="House" data-bed="2" data-location="Mathura">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="House">
+                    <div class="card-content">
+                        <p class="property-type">HOUSE</p>
+                        <h3>Comfortable Family Home</h3>
+                        <p class="location">📍 Mathura</p>
+                        <div class="property-info">
+                            <span>🛏 2 Beds</span>
+                            <span>🚿 2 Baths</span>
+                        </div>
+                        <h4>₹48 Lakh</h4>
+                    </div>
+                </div>
+
+                <div class="property-card" data-type="Villa" data-bed="4" data-location="Jaipur">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Villa">
+                    <div class="card-content">
+                        <p class="property-type">VILLA</p>
+                        <h3>Elegant Private Villa</h3>
+                        <p class="location">📍 Jaipur</p>
+                        <div class="property-info">
+                            <span>🛏 4 Beds</span>
+                            <span>🚿 3 Baths</span>
+                        </div>
+                        <h4>₹1.05 Crore</h4>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="property-card" data-type="Villa" data-bed="4" data-location="Jaipur">
-                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Villa">
-                <div class="card-content">
-                    <p class="property-type">VILLA</p>
-                    <h3>Elegant Private Villa</h3>
-                    <p class="location">📍 Jaipur</p>
-                    <div class="property-info">
-                        <span>🛏 4 Beds</span>
-                        <span>🚿 3 Baths</span>
-                    </div>
-                    <h4>₹1.05 Crore</h4>
-                </div>
-            </div>
+        </section>
 
-        </div>
-
-    </section>
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -170,8 +196,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 
 </body>
 </html>
