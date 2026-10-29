@@ -24,7 +24,7 @@
       <div>
         <p class="eyebrow">YOUR PERSONAL SPACE</p>
         <h1>Saved Searches &amp; Alerts</h1>
-        <p>Track your searches and never miss a great deal.</p>
+        <p>Track your property searches and never miss a new listing.</p>
       </div>
       <span class="header-icon">🔔</span>
     </section>
@@ -32,11 +32,11 @@
     <section class="stats">
       <div class="stat-card">
         <p>Total Searches</p>
-        <h2 id="totalSearches">3</h2>
+        <h2>3</h2>
       </div>
       <div class="stat-card">
         <p>Active Alerts</p>
-        <h2 id="activeAlerts">2</h2>
+        <h2>2</h2>
       </div>
       <div class="stat-card">
         <p>Alert Status</p>
@@ -48,34 +48,69 @@
       <div class="section-heading">
         <div>
           <h2>Your Saved Searches</h2>
-          <p>Manage your searches and notifications.</p>
+          <p>Switch alerts on or off for each search.</p>
         </div>
-        <span class="pill" id="savedCount">3 Saved</span>
+        <span class="pill">3 Saved</span>
       </div>
 
-      <form id="searchForm" class="search-form">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Enter a search, e.g. Laptops"
-          required
-        >
-        <button type="submit" class="primary-btn">
-          + Save Search
-        </button>
-      </form>
+      <div class="search-item">
+        <div class="search-icon">🔍</div>
+        <div class="search-info">
+          <h3>2 BHK Apartment in Noida</h3>
+          <p>Saved on 18 Sep 2026</p>
+          <div class="filter-tags">
+            <span>Apartment</span>
+            <span>2 Beds</span>
+            <span>Noida</span>
+            <span>Under ₹60 Lakh</span>
+          </div>
+        </div>
+        <div class="search-actions">
+          <span class="pill">New listing!</span>
+          <label class="toggle-label"><input type="checkbox" checked> Alerts</label>
+        </div>
+      </div>
 
-      <div id="searchList"></div>
+      <div class="search-item">
+        <div class="search-icon">🔍</div>
+        <div class="search-info">
+          <h3>Villa in Jaipur</h3>
+          <p>Saved on 20 Sep 2026</p>
+          <div class="filter-tags">
+            <span>Villa</span>
+            <span>4 Beds</span>
+            <span>Jaipur</span>
+          </div>
+        </div>
+        <div class="search-actions">
+          <label class="toggle-label"><input type="checkbox" checked> Alerts</label>
+        </div>
+      </div>
+
+      <div class="search-item">
+        <div class="search-icon">🔍</div>
+        <div class="search-info">
+          <h3>House in Mathura</h3>
+          <p>Saved on 22 Sep 2026</p>
+          <div class="filter-tags">
+            <span>House</span>
+            <span>2 Beds</span>
+            <span>Mathura</span>
+            <span>Under ₹50 Lakh</span>
+          </div>
+        </div>
+        <div class="search-actions">
+          <label class="toggle-label"><input type="checkbox"> Alerts</label>
+        </div>
+      </div>
     </section>
 
     <div class="tip">
       💡 <div>
-        <strong>Shopping Tip</strong>
-        <p>Enable alerts to keep track of your favorite searches.</p>
+        <strong>Tip</strong>
+        <p>Turn on alerts to be told when a new property matches your search.</p>
       </div>
     </div>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
