@@ -24,30 +24,77 @@
       <div>
         <p class="eyebrow">YOUR PERSONAL COLLECTION</p>
         <h1>My Wishlist <span class="heart">♥</span></h1>
-        <p>All your favorite products in one place.</p>
+        <p>All your favorite properties in one place.</p>
       </div>
-      <div class="cart-counter">
-        🛒 Cart: <strong id="cartCount">0</strong>
-      </div>
+      <span class="header-icon">🏠</span>
     </section>
 
     <section class="wishlist-toolbar">
       <div>
-        <h2>Favorite Products</h2>
-        <p><span id="wishlistCount">4</span> items saved for later</p>
+        <h2>Favorite Properties</h2>
+        <p>4 properties saved for later</p>
       </div>
-
-      <select id="sortProducts">
-        <option value="default">Recently Added</option>
-        <option value="low">Price: Low to High</option>
-        <option value="high">Price: High to Low</option>
-      </select>
     </section>
 
-    <div id="wishlistGrid" class="product-grid"></div>
-    <div id="toast" class="toast"></div>
-  </main>
+    <div class="product-grid">
 
-  <script src="script.js"></script>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern Family House" style="width:100%;height:100%;object-fit:cover;">
+          <span class="favorite-btn" style="display:grid;place-items:center;">♥</span>
+        </div>
+        <div class="product-details">
+          <p class="category">HOUSE · 📍 New Delhi</p>
+          <h3>Modern Family House</h3>
+          <p class="rating">🛏 3 Beds &nbsp; 🚿 2 Baths</p>
+          <div class="price-row"><strong>₹75 Lakh</strong></div>
+          <a class="add-cart" href="properties.html" style="display:block;text-align:center;text-decoration:none;">View Property</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Luxury City Apartment" style="width:100%;height:100%;object-fit:cover;">
+          <span class="favorite-btn" style="display:grid;place-items:center;">♥</span>
+        </div>
+        <div class="product-details">
+          <p class="category">APARTMENT · 📍 Noida</p>
+          <h3>Luxury City Apartment</h3>
+          <p class="rating">🛏 2 Beds &nbsp; 🚿 2 Baths</p>
+          <div class="price-row"><strong>₹58 Lakh</strong></div>
+          <a class="add-cart" href="properties.html" style="display:block;text-align:center;text-decoration:none;">View Property</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Beautiful Garden Villa" style="width:100%;height:100%;object-fit:cover;">
+          <span class="favorite-btn" style="display:grid;place-items:center;">♥</span>
+        </div>
+        <div class="product-details">
+          <p class="category">VILLA · 📍 Agra</p>
+          <h3>Beautiful Garden Villa</h3>
+          <p class="rating">🛏 4 Beds &nbsp; 🚿 3 Baths</p>
+          <div class="price-row"><strong>₹92 Lakh</strong></div>
+          <a class="add-cart" href="properties.html" style="display:block;text-align:center;text-decoration:none;">View Property</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="Comfortable Family Home" style="width:100%;height:100%;object-fit:cover;">
+          <span class="favorite-btn" style="display:grid;place-items:center;">♥</span>
+        </div>
+        <div class="product-details">
+          <p class="category">HOUSE · 📍 Mathura</p>
+          <h3>Comfortable Family Home</h3>
+          <p class="rating">🛏 2 Beds &nbsp; 🚿 2 Baths</p>
+          <div class="price-row"><strong>₹48 Lakh</strong></div>
+          <a class="add-cart" href="properties.html" style="display:block;text-align:center;text-decoration:none;">View Property</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
 </body>
 </html>
