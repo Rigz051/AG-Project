@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyFinder - Property Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .details-page { padding: 0 7% 70px; }
+
+        .detail { display: none; scroll-margin-top: 20px; }
+        .detail:target,
+        .details-page:not(:has(.detail:target)) #p1 { display: block; }
+
+        .detail-card {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-card img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
+        .detail-body { padding: 35px; }
+        .detail-body h2 { font-size: 30px; margin: 8px 0; }
+        .detail-body .location { margin-bottom: 10px; }
+        .detail-price { color: #182a55; font-size: 28px; font-weight: bold; margin-bottom: 20px; }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .stat-grid div {
+            background: #f8f9fc;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .stat-grid strong { display: block; color: #172033; font-size: 16px; margin-top: 4px; }
+
+        .detail-body h3 { margin: 18px 0 8px; font-size: 17px; }
+        .detail-body p.desc { color: #555; line-height: 1.7; }
+
+        .amenities { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+        .amenities li {
+            background: #fff6e8;
+            color: #182a55;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .detail-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+        .detail-actions a {
+            text-decoration: none;
+            padding: 13px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+            background: #e59b3a;
+            color: white;
+        }
+        .detail-actions a:hover { background: #cf8527; }
+        .detail-actions a.light { background: white; color: #182a55; border: 1px solid #ddd; }
+        .detail-actions a.light:hover { background: #f1f2f7; }
+
+        .more-title { margin: 45px 0 18px; font-size: 22px; }
+        .more-list { display: flex; flex-wrap: wrap; gap: 12px; }
+        .more-list a {
+            text-decoration: none;
+            background: white;
+            color: #182a55;
+            border: 1px solid #ddd;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+        .more-list a:hover { border-color: #e59b3a; background: #fff6e8; }
+
+        @media (max-width: 900px) {
+            .detail-card { grid-template-columns: 1fr; }
+            .detail-card img { min-height: 260px; height: 260px; }
+        }
+
+        @media (max-width: 600px) {
+            .details-page { padding: 0 20px 50px; }
+            .detail-body { padding: 22px; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Property<span>Finder</span></div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="saved-searches.html">Saved Searches &amp; Alerts</a></li>
+                <li><a href="Wishlist.html">Favorites / Wishlist</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="listing-header">
+        <p class="small-title">PROPERTY DETAILS</p>
+        <h1>Everything About the Property</h1>
+        <p>Photos, price, size, amenities and location in one place.</p>
+    </section>
+
+    <main class="details-page">
+
+        <!-- Property 1 -->
+        <section class="detail" id="p1">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Modern Family House">
+                <div class="detail-body">
+                    <p class="property-type">HOUSE</p>
+                    <h2>Modern Family House</h2>
+                    <p class="location">📍 New Delhi</p>
+                    <p class="detail-price">₹75 Lakh</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 3</strong></div>
+                        <div>Bathrooms<strong>🚿 2</strong></div>
+                        <div>Area<strong>1,800 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">A bright, modern family house with open living spaces, a well-planned kitchen and a quiet neighbourhood setting, close to schools and markets.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Parking</li><li>Garden</li><li>24x7 Water</li><li>Security</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m1">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property 2 -->
+        <section class="detail" id="p2">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Luxury City Apartment">
+                <div class="detail-body">
+                    <p class="property-type">APARTMENT</p>
+                    <h2>Luxury City Apartment</h2>
+                    <p class="location">📍 Noida</p>
+                    <p class="detail-price">₹58 Lakh</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 2</strong></div>
+                        <div>Bathrooms<strong>🚿 2</strong></div>
+                        <div>Area<strong>1,250 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">A stylish apartment in a well-connected part of the city, with a spacious living area, modern fittings and easy access to shops and transport.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Lift</li><li>Gym</li><li>Parking</li><li>Power Backup</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m2">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property 3 -->
+        <section class="detail" id="p3">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80" alt="Beautiful Garden Villa">
+                <div class="detail-body">
+                    <p class="property-type">VILLA</p>
+                    <h2>Beautiful Garden Villa</h2>
+                    <p class="location">📍 Agra</p>
+                    <p class="detail-price">₹92 Lakh</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 4</strong></div>
+                        <div>Bathrooms<strong>🚿 3</strong></div>
+                        <div>Area<strong>2,800 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">A spacious villa surrounded by greenery, with large bedrooms, a private garden and plenty of room for a growing family.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Private Garden</li><li>Swimming Pool</li><li>Parking</li><li>Security</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m3">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property 4 -->
+        <section class="detail" id="p4">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80" alt="Premium City Apartment">
+                <div class="detail-body">
+                    <p class="property-type">APARTMENT</p>
+                    <h2>Premium City Apartment</h2>
+                    <p class="location">📍 Gurgaon</p>
+                    <p class="detail-price">₹68 Lakh</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 3</strong></div>
+                        <div>Bathrooms<strong>🚿 2</strong></div>
+                        <div>Area<strong>1,600 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">A premium apartment in a modern residential complex, offering a comfortable layout, good natural light and quick access to offices and malls.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Lift</li><li>Gym</li><li>Parking</li><li>Power Backup</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m4">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property 5 -->
+        <section class="detail" id="p5">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80" alt="Comfortable Family Home">
+                <div class="detail-body">
+                    <p class="property-type">HOUSE</p>
+                    <h2>Comfortable Family Home</h2>
+                    <p class="location">📍 Mathura</p>
+                    <p class="detail-price">₹48 Lakh</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 2</strong></div>
+                        <div>Bathrooms<strong>🚿 2</strong></div>
+                        <div>Area<strong>1,400 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">A cosy, well-kept home in a peaceful locality, ideal for a small family looking for comfort at an affordable price.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Parking</li><li>Garden</li><li>24x7 Water</li><li>Security</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m5">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property 6 -->
+        <section class="detail" id="p6">
+            <div class="detail-card">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80" alt="Elegant Private Villa">
+                <div class="detail-body">
+                    <p class="property-type">VILLA</p>
+                    <h2>Elegant Private Villa</h2>
+                    <p class="location">📍 Jaipur</p>
+                    <p class="detail-price">₹1.05 Crore</p>
+                    <div class="stat-grid">
+                        <div>Bedrooms<strong>🛏 4</strong></div>
+                        <div>Bathrooms<strong>🚿 3</strong></div>
+                        <div>Area<strong>3,000 sq ft</strong></div>
+                        <div>Status<strong>For Sale</strong></div>
+                    </div>
+                    <h3>About this property</h3>
+                    <p class="desc">An elegant private villa with a grand entrance, generous living spaces and a landscaped garden, set in a prime residential area.</p>
+                    <h3>Amenities</h3>
+                    <ul class="amenities"><li>Private Garden</li><li>Swimming Pool</li><li>Parking</li><li>Security</li></ul>
+                    <div class="detail-actions">
+                        <a href="map.html#m6">View on Map</a>
+                        <a class="light" href="compare.html">Compare</a>
+                        <a class="light" href="properties.html">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="more-title">Browse other properties</h2>
+        <div class="more-list">
+            <a href="#p1">Modern Family House</a>
+            <a href="#p2">Luxury City Apartment</a>
+            <a href="#p3">Beautiful Garden Villa</a>
+            <a href="#p4">Premium City Apartment</a>
+            <a href="#p5">Comfortable Family Home</a>
+            <a href="#p6">Elegant Private Villa</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>PropertyFinder</h3>
+                <p>Making property discovery simple and convenient.</p>
+            </div>
+
+            <div>
+                <p>© 2026 PropertyFinder</p>
+                <p>Mini Project - Full Stack Development</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
