@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyFinder - Map View</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .map-layout {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 25px;
+            padding: 0 7% 70px;
+            align-items: start;
+        }
+
+        .map-list { display: flex; flex-direction: column; gap: 12px; }
+
+        .map-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: #172033;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .map-item:hover { border-color: #e59b3a; }
+        .map-item img { width: 80px; height: 65px; object-fit: cover; border-radius: 6px; }
+        .map-item h3 { font-size: 15px; margin-bottom: 4px; }
+        .map-item p { font-size: 13px; color: #777; }
+        .map-item strong { color: #182a55; font-size: 14px; }
+
+        .map-view {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .map-panel { display: none; scroll-margin-top: 20px; }
+        .map-panel iframe { width: 100%; height: 440px; border: 0; display: block; }
+
+        .map-info {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .map-info h2 { font-size: 22px; margin-bottom: 6px; }
+        .map-info p { color: #777; }
+        .map-info .price { color: #182a55; font-size: 22px; font-weight: bold; }
+
+        .map-info a.btn {
+            background: #e59b3a;
+            color: white;
+            text-decoration: none;
+            padding: 13px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .map-info a.btn:hover { background: #cf8527; }
+
+        .map-note { color: #777; font-size: 13px; padding: 0 25px 20px; }
+
+        /* Show the selected panel (first one by default) - no JavaScript */
+        .map-panel:target,
+        .map-page:not(:has(.map-panel:target)) #m1 { display: block; }
+
+        /* Highlight the selected property in the list */
+        .map-page:has(#m1:target) .item-1,
+        .map-page:has(#m2:target) .item-2,
+        .map-page:has(#m3:target) .item-3,
+        .map-page:has(#m4:target) .item-4,
+        .map-page:has(#m5:target) .item-5,
+        .map-page:has(#m6:target) .item-6,
+        .map-page:not(:has(.map-panel:target)) .item-1 {
+            border-color: #e59b3a;
+            background: #fff6e8;
+        }
+
+        @media (max-width: 900px) {
+            .map-layout { grid-template-columns: 1fr; }
+            .map-list { flex-direction: row; overflow-x: auto; padding-bottom: 8px; }
+            .map-item { min-width: 260px; }
+        }
+
+        @media (max-width: 600px) {
+            .map-layout { padding: 0 20px 50px; }
+            .map-panel iframe { height: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Property<span>Finder</span></div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="map.html" style="color:#e59b3a;font-weight:bold;">Map</a></li>
+                <li><a href="saved-searches.html">Saved Searches &amp; Alerts</a></li>
+                <li><a href="Wishlist.html">Favorites / Wishlist</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="listing-header">
+        <p class="small-title">MAP VIEW</p>
+        <h1>Explore Properties on the Map</h1>
+        <p>Pick a property from the list to see its location on the map.</p>
+    </section>
+
+    <main class="map-page">
+        <div class="map-layout">
+
+            <aside class="map-list">
+                <a class="map-item item-1" href="#m1">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Modern Family House">
+                    <div><h3>Modern Family House</h3><p>📍 New Delhi</p><strong>₹75 Lakh</strong></div>
+                </a>
+                <a class="map-item item-2" href="#m2">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=400&q=80" alt="Luxury City Apartment">
+                    <div><h3>Luxury City Apartment</h3><p>📍 Noida</p><strong>₹58 Lakh</strong></div>
+                </a>
+                <a class="map-item item-3" href="#m3">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&q=80" alt="Beautiful Garden Villa">
+                    <div><h3>Beautiful Garden Villa</h3><p>📍 Agra</p><strong>₹92 Lakh</strong></div>
+                </a>
+                <a class="map-item item-4" href="#m4">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=400&q=80" alt="Premium City Apartment">
+                    <div><h3>Premium City Apartment</h3><p>📍 Gurgaon</p><strong>₹68 Lakh</strong></div>
+                </a>
+                <a class="map-item item-5" href="#m5">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=80" alt="Comfortable Family Home">
+                    <div><h3>Comfortable Family Home</h3><p>📍 Mathura</p><strong>₹48 Lakh</strong></div>
+                </a>
+                <a class="map-item item-6" href="#m6">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=400&q=80" alt="Elegant Private Villa">
+                    <div><h3>Elegant Private Villa</h3><p>📍 Jaipur</p><strong>₹1.05 Crore</strong></div>
+                </a>
+            </aside>
+
+            <div class="map-view">
+
+                <div class="map-panel" id="m1">
+                    <iframe title="Map of Modern Family House, New Delhi" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=77.129%2C28.554%2C77.289%2C28.674&amp;layer=mapnik&amp;marker=28.6139%2C77.2090"></iframe>
+                    <div class="map-info">
+                        <div><h2>Modern Family House</h2><p>📍 New Delhi &nbsp;|&nbsp; 🛏 3 Beds &nbsp; 🚿 2 Baths</p><p class="price">₹75 Lakh</p></div>
+                        <a class="btn" href="property-details.html#p1">View Full Details</a>
+                    </div>
+                </div>
+
+                <div class="map-panel" id="m2">
+                    <iframe title="Map of Luxury City Apartment, Noida" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=77.311%2C28.476%2C77.471%2C28.596&amp;layer=mapnik&amp;marker=28.5355%2C77.3910"></iframe>
+                    <div class="map-info">
+                        <div><h2>Luxury City Apartment</h2><p>📍 Noida &nbsp;|&nbsp; 🛏 2 Beds &nbsp; 🚿 2 Baths</p><p class="price">₹58 Lakh</p></div>
+                        <a class="btn" href="property-details.html#p2">View Full Details</a>
+                    </div>
+                </div>
+
+                <div class="map-panel" id="m3">
+                    <iframe title="Map of Beautiful Garden Villa, Agra" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=77.928%2C27.117%2C78.088%2C27.237&amp;layer=mapnik&amp;marker=27.1767%2C78.0081"></iframe>
+                    <div class="map-info">
+                        <div><h2>Beautiful Garden Villa</h2><p>📍 Agra &nbsp;|&nbsp; 🛏 4 Beds &nbsp; 🚿 3 Baths</p><p class="price">₹92 Lakh</p></div>
+                        <a class="btn" href="property-details.html#p3">View Full Details</a>
+                    </div>
+                </div>
+
+                <div class="map-panel" id="m4">
+                    <iframe title="Map of Premium City Apartment, Gurgaon" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=76.947%2C28.400%2C77.107%2C28.520&amp;layer=mapnik&amp;marker=28.4595%2C77.0266"></iframe>
+                    <div class="map-info">
+                        <div><h2>Premium City Apartment</h2><p>📍 Gurgaon &nbsp;|&nbsp; 🛏 3 Beds &nbsp; 🚿 2 Baths</p><p class="price">₹68 Lakh</p></div>
+                        <a class="btn" href="property-details.html#p4">View Full Details</a>
+                    </div>
+                </div>
+
+                <div class="map-panel" id="m5">
+                    <iframe title="Map of Comfortable Family Home, Mathura" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=77.594%2C27.432%2C77.754%2C27.552&amp;layer=mapnik&amp;marker=27.4924%2C77.6737"></iframe>
+                    <div class="map-info">
+                        <div><h2>Comfortable Family Home</h2><p>📍 Mathura &nbsp;|&nbsp; 🛏 2 Beds &nbsp; 🚿 2 Baths</p><p class="price">₹48 Lakh</p></div>
+                        <a class="btn" href="property-details.html#p5">View Full Details</a>
+                    </div>
+                </div>
+
+                <div class="map-panel" id="m6">
+                    <iframe title="Map of Elegant Private Villa, Jaipur" loading="lazy"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=75.707%2C26.852%2C75.867%2C26.972&amp;layer=mapnik&amp;marker=26.9124%2C75.7873"></iframe>
+                    <div class="map-info">
+                        <div><h2>Elegant Private Villa</h2><p>📍 Jaipur &nbsp;|&nbsp; 🛏 4 Beds &nbsp; 🚿 3 Baths</p><p class="price">₹1.05 Crore</p></div>
+                        <a class="btn" href="property-details.html#p6">View Full Details</a>
+                    </div>
+                </div>
+
+                <p class="map-note">You can zoom and drag the map. The marker shows the city centre of each property.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>PropertyFinder</h3>
+                <p>Making property discovery simple and convenient.</p>
+            </div>
+
+            <div>
+                <p>© 2026 PropertyFinder</p>
+                <p>Mini Project - Full Stack Development</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
